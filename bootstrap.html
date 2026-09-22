@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RE-WARE</title>
+ <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+  }
+
+  /* ================= NAVBAR ================= */
+
+  .fashion-navbar {
+    background: #ffffff;
+    height: 82px;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand-logo {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #3a6f21;
+    text-decoration: none;
+  }
+
+  .fashion-nav-link {
+    color: #222 !important;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 13px;
+    text-decoration: none;
+  }
+
+  .fashion-nav-link:hover {
+    color: #657858 !important;
+  }
+
+  .nav-icons a {
+    color: #222;
+    font-size: 21px;
+    margin-left: 18px;
+    text-decoration: none;
+  }
+
+  .nav-icons a:hover {
+    color: #657858;
+  }
+
+  /* ================= HERO ================= */
+
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+  }
+
+  .hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 450px;
+  }
+
+  .hero-small-text {
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-size: 48px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+    margin-bottom: 25px;
+  }
+
+  .hero-button {
+    display: inline-block;
+    background: white;
+    color: #222;
+    padding: 13px 28px;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-button:hover {
+    background: #26351f;
+    color: white;
+  }
+
+  /* ================= SECTION TITLE ================= */
+
+  .section-heading {
+    text-align: center;
+    padding: 70px 20px 45px;
+  }
+
+  .section-heading h2 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .section-heading p {
+    color: #777;
+    font-size: 15px;
+  }
+
+  /* ================= PRODUCT CARDS ================= */
+
+  .product-card {
+    border: none;
+    background: white;
+    height: 100%;
+    transition: 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+
+  .product-info {
+    padding: 18px 5px 30px;
+  }
+
+  .product-name {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 7px;
+  }
+
+  .product-price {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .shop-product-btn {
+    background: #26351f;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .shop-product-btn:hover {
+    background: #657858;
+    color: white;
+  }
+
+  /* ================= CATEGORY SECTION ================= */
+
+  .category-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .category-card img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    transition: 0.5s;
+  }
+
+  .category-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .category-text {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: white;
+  }
+
+  .category-text h3 {
+    font-size: 25px;
+    letter-spacing: 2px;
+    font-weight: 400;
+  }
+
+  .category-text a {
+    color: white;
+    text-decoration: underline;
+    letter-spacing: 1px;
+  }
+
+  /* ================= MOBILE ================= */
+
+  @media (max-width: 768px) {
+
+    .fashion-navbar {
+      height: auto;
+    }
+
+    .hero-section {
+      height: 450px;
+    }
+
+    .hero-title {
+      font-size: 32px;
+    }
+
+    .hero-overlay {
+      left: 8%;
+    }
+
+    .product-image {
+      height: 300px;
+    }
+
+  }
+</style>
+
+</head>
+</head>
+<body>
+   
+
+  <!-- Navigation Bar -->
+    <!-- RIGHT ICONS -->
+    <div class="nav-icons d-none d-lg-flex">
+
+      <a href="search.html" title="Search">
+        <i class="bi bi-search"></i>
+      </a>
+
+      <a href="login.html" title="Account">
+        <i class="bi bi-person"></i>
+      </a>
+
+      <a href="cart.html" title="Cart">
+        <i class="bi bi-bag"></i>
+      </a>
+      
+
+    </div>
+
+  </div>
+
+</nav>
+      
+      <!-- Brand Logo -->
+      <a class="navbar-brand fw-bold fs-3 tracking-wide" href="index.html">RE-WEAR</a>
+
+      <!-- Mobile Toggle Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <!-- Shop Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Shop
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
+              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=all">All Clothes</a></li>
+              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=outerwear">Jackets & Sweaters</a></li>
+              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=tops">Shirts & Tops</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=vintage">Vintage Collection</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Sell / Trade</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+        </ul>
+
+        <!-- Search Bar -->
+        <form class="d-flex me-3" action="search.html" method="GET">
+          <input class="form-control me-2" type="search" name="q" placeholder="Search clothes..." aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+
+        <!-- User Action Button -->
+        <a href="login.html" class="btn btn-dark ms-2">Account</a>
+        
+
+      </div>
+    </div>
+  </nav>
+ <!-- ================= HERO CAROUSEL ================= -->
+
+
+<div id="rewareCarousel" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- CAROUSEL INDICATORS -->
+
+  <div class="carousel-indicators">
+
+    <button 
+      type="button"
+      data-bs-target="#rewareCarousel"
+      data-bs-slide-to="0"
+      class="active">
+    </button>
+
+    <button 
+      type="button"
+      data-bs-target="#rewareCarousel"
+      data-bs-slide-to="1">
+    </button>
+
+    <button 
+      type="button"
+      data-bs-target="#rewareCarousel"
+      data-bs-slide-to="2">
+    </button>
+
+  </div>
+
+
+  <!-- CAROUSEL CONTENT -->
+
+  <div class="carousel-inner">
+
+    <!-- SLIDE 1 -->
+
+    <div class="carousel-item active">
+
+      <div class="hero-section">
+
+        <img src="IMAGE_NEW.png" class="w-100 h-100 object-fit-cover" alt="RE-WEAR Clothing">
+
+        <div class="hero-overlay">
+
+          <div class="hero-small-text">
+            RE-WEAR COLLECTION
+          </div>
+
+          <h1 class="hero-title">
+            STYLE THAT<br>
+            LIVES AGAIN
+          </h1>
+
+          <p class="hero-description">
+            Pre-loved clothes. New stories.
+          </p>
+
+          <a href="shop.html" class="hero-button">
+            SHOP NOW
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SLIDE 2 -->
+
+    <div class="carousel-item">
+
+      <div class="hero-section">
+
+       <img src="web.jfif" class="w-100 h-100 object-fit-cover" alt="Vintage Clothing">
+
+        <div class="hero-overlay">
+
+          <div class="hero-small-text">
+            VINTAGE COLLECTION
+          </div>
+
+          <h1 class="hero-title">
+            TIMELESS<br>
+            STYLE
+          </h1>
+
+          <p class="hero-description">
+            Discover unique pieces with a story.
+          </p>
+
+          <a href="shop.html?cat=vintage" class="hero-button">
+            EXPLORE VINTAGE
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- SLIDE 3 -->
+
+    <div class="carousel-item">
+
+      <div class="hero-section">
+
+        <img src="neww.jpg" class="w-100 h-100 object-fit-cover" alt="Sustainable Fashion">
+
+        <div class="hero-overlay">
+
+          <div class="hero-small-text">
+            SUSTAINABLE FASHION
+          </div>
+
+          <h1 class="hero-title">
+            WEAR MORE.<br>
+            WASTE LESS.
+          </h1>
+
+          <p class="hero-description">
+            Buy, sell and swap your favorite clothes.
+          </p>
+
+          <a href="sell.html" class="hero-button">
+            SELL / TRADE
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- LEFT ARROW -->
+
+  <button 
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#rewareCarousel"
+    data-bs-slide="prev">
+
+    <span class="carousel-control-prev-icon"></span>
+
+    <span class="visually-hidden">
+      Previous
+    </span>
+
+  </button>
+
+
+  <!-- RIGHT ARROW -->
+
+  <button 
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#rewareCarousel"
+    data-bs-slide="next">
+
+    <span class="carousel-control-next-icon"></span>
+
+    <span class="visually-hidden">
+      Next
+    </span>
+
+  </button>
+
+</div>
+
+  </div>
+
+</section>
+  </div>
+  <!-- ================= NEW ARRIVALS ================= -->
+
+<section>
+
+  <div class="section-heading">
+
+    <h2>NEW ARRIVALS</h2>
+
+    <p>
+      Discover pre-loved styles with a new story.
+    </p>
+
+  </div>
+
+
+  <div class="container-fluid px-4">
+
+    <div class="row g-4">
+
+
+      <!-- PRODUCT 1 -->
+
+      <div class="col-6 col-md-3">
+
+        <div class="product-card">
+
+          <img 
+            src="product1.jpg"
+            class="product-image"
+            alt="Denim Jacket">
+
+          <div class="product-info">
+
+            <div class="product-name">
+              Classic Denim Jacket
+            </div>
+
+            <div class="product-price">
+              Rs. 2,500
+            </div>
+
+            <a 
+              href="shop.html"
+              class="shop-product-btn">
+
+              VIEW ITEM
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 2 -->
+
+      <div class="col-6 col-md-3">
+
+        <div class="product-card">
+
+          <img 
+            src="product2.jpg"
+            class="product-image"
+            alt="Vintage Shirt">
+
+          <div class="product-info">
+
+            <div class="product-name">
+              Vintage Printed Shirt
+            </div>
+
+            <div class="product-price">
+              Rs. 1,800
+            </div>
+
+            <a 
+              href="shop.html"
+              class="shop-product-btn">
+
+              VIEW ITEM
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 3 -->
+
+      <div class="col-6 col-md-3">
+
+        <div class="product-card">
+
+          <img 
+            src="product3.jpg"
+            class="product-image"
+            alt="Sweater">
+
+          <div class="product-info">
+
+            <div class="product-name">
+              Cozy Knit Sweater
+            </div>
+
+            <div class="product-price">
+              Rs. 2,200
+            </div>
+
+            <a 
+              href="shop.html"
+              class="shop-product-btn">
+
+              VIEW ITEM
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT 4 -->
+
+      <div class="col-6 col-md-3">
+
+        <div class="product-card">
+
+          <img 
+            src="product4.jpg"
+            class="product-image"
+            alt="Classic Jeans">
+
+          <div class="product-info">
+
+            <div class="product-name">
+              Classic Blue Jeans
+            </div>
+
+            <div class="product-price">
+              Rs. 2,000
+            </div>
+
+            <a 
+              href="shop.html"
+              class="shop-product-btn">
+
+              VIEW ITEM
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+    <style>
+  .site-footer{
+    background:#2e3a28;
+    color:#e6e3d8;
+    padding:50px 0 20px;
+  }
+  .site-footer h6{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:#9fae8f;
+    margin-bottom:16px;
+  }
+  .site-footer a{
+    color:#e6e3d8;
+    text-decoration:none;
+    display:block;
+    margin-bottom:10px;
+    font-size:0.92rem;
+  }
+  .site-footer a:hover{
+    color:#ffffff;
+    text-decoration:underline;
+  }
+  .site-footer .footer-brand{
+    font-weight:700;
+    font-size:1.4rem;
+    color:#ffffff;
+  }
+  .site-footer .footer-tagline{
+    color:#b7c2a9;
+    font-size:0.92rem;
+    max-width:32ch;
+    margin-top:10px;
+  }
+  .site-footer hr{
+    border-color:rgba(255,255,255,0.15);
+    margin:36px 0 20px;
+  }
+  .site-footer .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.82rem;
+    color:#9fae8f;
+  }
+  .site-footer .social-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,0.25);
+    margin-right:8px;
+  }
+</style>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row gy-4">
+
+      <div class="col-6 col-md-3">
+        <div class="footer-brand">RE-WEAR</div>
+        <p class="footer-tagline">Buy, sell, or swap clothes — give what you own a new story.</p>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <h6>Shop</h6>
+        <a href="shop.html">All Clothes</a>
+        <a href="shop.html?cat=outerwear">Jackets & Sweaters</a>
+        <a href="shop.html?cat=vintage">Vintage Collection</a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <h6>Company</h6>
+        <a href="about.html">About Us</a>
+        <a href="sell.html">Sell / Trade</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <h6>Support</h6>
+        <a href="#">How Swapping Works</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">Help Center</a>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 RE-WEAR. All rights reserved.</span>
+      <div>
+        <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+        <a href="#" class="social-icon" aria-label="TikTok">TT</a>
+        <a href="#" class="social-icon" aria-label="Facebook">FB</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+ <!-- IMPORTANT: Include Bootstrap JS at the end for dropdowns and mobile menu to function -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
