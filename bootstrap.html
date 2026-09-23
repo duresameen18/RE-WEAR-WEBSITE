@@ -1,799 +1,1927 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RE-WARE</title>
- <!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #222;
-  }
+    <title>RE-WARE | Buy Sell Exchange</title>
 
-  /* ================= NAVBAR ================= */
+    <style>
 
-  .fashion-navbar {
-    background: #ffffff;
-    height: 82px;
-    border-bottom: 1px solid #eeeeee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-  }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  .brand-logo {
-    font-size: 30px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #3a6f21;
-    text-decoration: none;
-  }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  .fashion-nav-link {
-    color: #222 !important;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 0 13px;
-    text-decoration: none;
-  }
+        body {
+            font-family: Arial, sans-serif;
+            color: #263522;
+            background: white;
+        }
 
-  .fashion-nav-link:hover {
-    color: #657858 !important;
-  }
+        button {
+            cursor: pointer;
+        }
 
-  .nav-icons a {
-    color: #222;
-    font-size: 21px;
-    margin-left: 18px;
-    text-decoration: none;
-  }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-  .nav-icons a:hover {
-    color: #657858;
-  }
 
-  /* ================= HERO ================= */
+        /* ================= NAVBAR ================= */
 
-  .hero-section {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    overflow: hidden;
-  }
+        .navbar {
+            height: 75px;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-  .hero-section img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #263522;
+        }
 
-  .hero-overlay {
-    position: absolute;
-    left: 6%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    max-width: 450px;
-  }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
 
-  .hero-small-text {
-    font-size: 14px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
+        .nav-links a {
+            font-size: 14px;
+        }
 
-  .hero-title {
-    font-size: 48px;
-    letter-spacing: 5px;
-    font-weight: 400;
-    margin-bottom: 20px;
-  }
+        .nav-links a:hover {
+            color: #89966c;
+        }
 
-  .hero-description {
-    font-size: 17px;
-    margin-bottom: 25px;
-  }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-  .hero-button {
-    display: inline-block;
-    background: white;
-    color: #222;
-    padding: 13px 28px;
-    text-decoration: none;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
+        .search-box {
+            width: 170px;
+            padding: 9px 14px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
 
-  .hero-button:hover {
-    background: #26351f;
-    color: white;
-  }
+        .cart-button {
+            background: #263522;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
 
-  /* ================= SECTION TITLE ================= */
 
-  .section-heading {
-    text-align: center;
-    padding: 70px 20px 45px;
-  }
+        /* ================= HERO ================= */
 
-  .section-heading h2 {
-    font-size: 28px;
-    font-weight: 400;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
+        .hero {
+            height: 560px;
+            position: relative;
+            overflow: hidden;
+        }
 
-  .section-heading p {
-    color: #777;
-    font-size: 15px;
-  }
+        .slide {
+            height: 100%;
+            width: 100%;
+            display: none;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-  /* ================= PRODUCT CARDS ================= */
+        .slide.active {
+            display: block;
+        }
 
-  .product-card {
-    border: none;
-    background: white;
-    height: 100%;
-    transition: 0.3s;
-  }
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            max-width: 520px;
+        }
 
-  .product-card:hover {
-    transform: translateY(-5px);
-  }
+        .slide-content h1 {
+            font-size: 55px;
+            margin: 15px 0;
+            line-height: 1.1;
+        }
 
-  .product-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-  }
+        .slide-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-  .product-info {
-    padding: 18px 5px 30px;
-  }
+        .small-title {
+            color: #89966c;
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
 
-  .product-name {
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin-bottom: 7px;
-  }
+        .main-button {
+            padding: 14px 27px;
+            background: #263522;
+            color: white;
+            border: none;
+        }
 
-  .product-price {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
+        .main-button:hover {
+            background: #4c6048;
+        }
 
-  .shop-product-btn {
-    background: #26351f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 1px;
-  }
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            border: none;
+            border-radius: 50%;
+            background: white;
+            font-size: 20px;
+        }
 
-  .shop-product-btn:hover {
-    background: #657858;
-    color: white;
-  }
+        .prev {
+            left: 25px;
+        }
 
-  /* ================= CATEGORY SECTION ================= */
+        .next {
+            right: 25px;
+        }
 
-  .category-card {
-    position: relative;
-    overflow: hidden;
-  }
 
-  .category-card img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    transition: 0.5s;
-  }
+        /* ================= INTRO ================= */
 
-  .category-card:hover img {
-    transform: scale(1.05);
-  }
+        .intro {
+            text-align: center;
+            padding: 70px 10%;
+        }
 
-  .category-text {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    color: white;
-  }
+        .intro h2 {
+            font-size: 36px;
+            margin: 12px 0;
+        }
 
-  .category-text h3 {
-    font-size: 25px;
-    letter-spacing: 2px;
-    font-weight: 400;
-  }
+        .intro p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.7;
+            color: #666;
+        }
 
-  .category-text a {
-    color: white;
-    text-decoration: underline;
-    letter-spacing: 1px;
-  }
 
-  /* ================= MOBILE ================= */
+        /* ================= CATEGORIES ================= */
 
-  @media (max-width: 768px) {
+        .categories {
+            padding: 20px 6% 70px;
+        }
 
-    .fashion-navbar {
-      height: auto;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
 
-    .hero-section {
-      height: 450px;
-    }
+        .category-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
 
-    .hero-title {
-      font-size: 32px;
-    }
+        .category {
+            height: 330px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
 
-    .hero-overlay {
-      left: 8%;
-    }
+        .category::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,0.75)
+            );
+        }
 
-    .product-image {
-      height: 300px;
-    }
+        .category-content {
+            position: relative;
+            color: white;
+        }
 
-  }
-</style>
+        .category-content h3 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .category-content p {
+            margin-bottom: 15px;
+        }
+
+        .white-button {
+            padding: 10px 20px;
+            background: white;
+            color: #263522;
+            border: none;
+        }
+
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            padding: 70px 6%;
+            background: #f6f6f1;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product-card {
+            background: white;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 17px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 7px;
+        }
+
+        .category-name {
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-buttons {
+            display: flex;
+            gap: 7px;
+        }
+
+        .buy-button {
+            flex: 1;
+            padding: 10px;
+            background: #263522;
+            color: white;
+            border: none;
+        }
+
+        .exchange-button {
+            flex: 1;
+            padding: 10px;
+            background: #dfe5d4;
+            color: #263522;
+            border: none;
+        }
+
+
+        /* ================= SELL ================= */
+
+        .sell-section {
+            margin: 70px 6%;
+            padding: 60px;
+            background: #263522;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .sell-section h2 {
+            font-size: 38px;
+            margin: 15px 0;
+        }
+
+        .sell-section p {
+            max-width: 650px;
+            line-height: 1.7;
+            color: #ddd;
+        }
+
+        .sell-button {
+            padding: 14px 25px;
+            background: white;
+            color: #263522;
+            border: none;
+        }
+
+
+        /* ================= HOW IT WORKS ================= */
+
+        .how {
+            padding: 70px 6%;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .step {
+            border: 1px solid #ddd;
+            padding: 30px;
+        }
+
+        .number {
+            width: 45px;
+            height: 45px;
+            margin: auto auto 15px;
+            border-radius: 50%;
+            background: #dfe5d4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #1d281b;
+            color: white;
+            padding: 50px 6% 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        footer h3 {
+            margin-bottom: 15px;
+        }
+
+        footer p,
+        footer li {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #465044;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+
+        /* ================= MODAL ================= */
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-box h2 {
+            margin-bottom: 20px;
+        }
+
+        .close {
+            float: right;
+            font-size: 25px;
+            border: none;
+            background: none;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+        }
+
+        .form-button {
+            width: 100%;
+            padding: 13px;
+            background: #263522;
+            color: white;
+            border: none;
+            margin-top: 10px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 1000px) {
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .product-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .navbar {
+                height: auto;
+                padding: 15px;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-links {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .slide-content h1 {
+                font-size: 40px;
+            }
+
+            .category-container {
+                grid-template-columns: 1fr;
+            }
+
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            .sell-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
 
 </head>
-</head>
+
+
 <body>
-   
 
-  <!-- Navigation Bar -->
-    <!-- RIGHT ICONS -->
-    <div class="nav-icons d-none d-lg-flex">
 
-      <a href="search.html" title="Search">
-        <i class="bi bi-search"></i>
-      </a>
+<!-- ================= NAVBAR ================= -->
 
-      <a href="login.html" title="Account">
-        <i class="bi bi-person"></i>
-      </a>
+<nav class="navbar">
 
-      <a href="cart.html" title="Cart">
-        <i class="bi bi-bag"></i>
-      </a>
-      
-
+    <div class="logo">
+        RE-WEAR
     </div>
 
-  </div>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#shop">Shop</a>
+        </li>
+
+        <li>
+            <a href="#western">Western</a>
+        </li>
+
+        <li>
+            <a href="#eastern">Eastern</a>
+        </li>
+
+        <li>
+            <a href="#sell">Sell</a>
+        </li>
+
+        <li>
+            <a href="#exchange">Exchange</a>
+        </li>
+
+    </ul>
+
+
+    <div class="nav-right">
+
+        <input
+            type="text"
+            id="search"
+            class="search-box"
+            placeholder="Search items..."
+            onkeyup="searchProducts()"
+        >
+
+        <button
+            class="cart-button"
+            onclick="openCart()"
+        >
+            🛒 Cart (<span id="cartCount">0</span>)
+        </button>
+
+    </div>
 
 </nav>
-      
-      <!-- Brand Logo -->
-      <a class="navbar-brand fw-bold fs-3 tracking-wide" href="index.html">RE-WEAR</a>
-
-      <!-- Mobile Toggle Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-          
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-
-          <!-- Shop Dropdown -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Shop
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="shopDropdown">
-              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=all">All Clothes</a></li>
-              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=outerwear">Jackets & Sweaters</a></li>
-              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=tops">Shirts & Tops</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-menu-item dropdown-item" href="shop.html?cat=vintage">Vintage Collection</a></li>
-            </ul>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Sell / Trade</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About Us</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-
-        </ul>
-
-        <!-- Search Bar -->
-        <form class="d-flex me-3" action="search.html" method="GET">
-          <input class="form-control me-2" type="search" name="q" placeholder="Search clothes..." aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
-
-        <!-- User Action Button -->
-        <a href="login.html" class="btn btn-dark ms-2">Account</a>
-        
-
-      </div>
-    </div>
-  </nav>
- <!-- ================= HERO CAROUSEL ================= -->
 
 
-<div id="rewareCarousel" class="carousel slide" data-bs-ride="carousel">
 
-  <!-- CAROUSEL INDICATORS -->
+<!-- ================= HERO ================= -->
 
-  <div class="carousel-indicators">
+<section class="hero" id="home">
 
-    <button 
-      type="button"
-      data-bs-target="#rewareCarousel"
-      data-bs-slide-to="0"
-      class="active">
-    </button>
-
-    <button 
-      type="button"
-      data-bs-target="#rewareCarousel"
-      data-bs-slide-to="1">
-    </button>
-
-    <button 
-      type="button"
-      data-bs-target="#rewareCarousel"
-      data-bs-slide-to="2">
-    </button>
-
-  </div>
-
-
-  <!-- CAROUSEL CONTENT -->
-
-  <div class="carousel-inner">
 
     <!-- SLIDE 1 -->
 
-    <div class="carousel-item active">
+    <div
+        class="slide active"
+        style="
+        background-image:
+        linear-gradient(90deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.15)),
+        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=80');
+        "
+    >
 
-      <div class="hero-section">
+        <div class="slide-content">
 
-        <img src="IMAGE_NEW.png" class="w-100 h-100 object-fit-cover" alt="RE-WEAR Clothing">
+            <p class="small-title">
+                WELCOME TO RE-WEAR
+            </p>
 
-        <div class="hero-overlay">
+            <h1>
+                Give Clothes<br>
+                A Second Life.
+            </h1>
 
-          <div class="hero-small-text">
-            RE-WEAR COLLECTION
-          </div>
+            <p>
+                Buy, sell and exchange beautiful
+                pre-loved fashion.
+            </p>
 
-          <h1 class="hero-title">
-            STYLE THAT<br>
-            LIVES AGAIN
-          </h1>
-
-          <p class="hero-description">
-            Pre-loved clothes. New stories.
-          </p>
-
-          <a href="shop.html" class="hero-button">
-            SHOP NOW
-          </a>
+            <button
+                class="main-button"
+                onclick="goToShop()"
+            >
+                SHOP NOW
+            </button>
 
         </div>
-
-      </div>
 
     </div>
 
 
     <!-- SLIDE 2 -->
 
-    <div class="carousel-item">
+    <div
+        class="slide"
+        style="
+        background-image:
+        linear-gradient(90deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.15)),
+        url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1600&q=80');
+        "
+    >
 
-      <div class="hero-section">
+        <div class="slide-content">
 
-       <img src="web.jfif" class="w-100 h-100 object-fit-cover" alt="Vintage Clothing">
+            <p class="small-title">
+                SELL YOUR STYLE
+            </p>
 
-        <div class="hero-overlay">
+            <h1>
+                Your Closet.<br>
+                Someone's New Favorite.
+            </h1>
 
-          <div class="hero-small-text">
-            VINTAGE COLLECTION
-          </div>
+            <p>
+                Sell clothes you no longer wear
+                and give them a new home.
+            </p>
 
-          <h1 class="hero-title">
-            TIMELESS<br>
-            STYLE
-          </h1>
-
-          <p class="hero-description">
-            Discover unique pieces with a story.
-          </p>
-
-          <a href="shop.html?cat=vintage" class="hero-button">
-            EXPLORE VINTAGE
-          </a>
+            <button
+                class="main-button"
+                onclick="openSell()"
+            >
+                SELL NOW
+            </button>
 
         </div>
-
-      </div>
 
     </div>
 
 
     <!-- SLIDE 3 -->
 
-    <div class="carousel-item">
+    <div
+        class="slide"
+        style="
+        background-image:
+        linear-gradient(90deg,
+        rgba(255,255,255,0.92),
+        rgba(255,255,255,0.15)),
+        url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80');
+        "
+    >
 
-      <div class="hero-section">
+        <div class="slide-content">
 
-        <img src="neww.jpg" class="w-100 h-100 object-fit-cover" alt="Sustainable Fashion">
+            <p class="small-title">
+                SWAP & SAVE
+            </p>
 
-        <div class="hero-overlay">
+            <h1>
+                Exchange.<br>
+                Refresh. Repeat.
+            </h1>
 
-          <div class="hero-small-text">
-            SUSTAINABLE FASHION
-          </div>
+            <p>
+                Exchange your clothes for
+                something new to you.
+            </p>
 
-          <h1 class="hero-title">
-            WEAR MORE.<br>
-            WASTE LESS.
-          </h1>
-
-          <p class="hero-description">
-            Buy, sell and swap your favorite clothes.
-          </p>
-
-          <a href="sell.html" class="hero-button">
-            SELL / TRADE
-          </a>
+            <button
+                class="main-button"
+                onclick="openExchange()"
+            >
+                EXPLORE EXCHANGE
+            </button>
 
         </div>
 
-      </div>
-
     </div>
 
-  </div>
 
+    <button
+        class="prev"
+        onclick="changeSlide(-1)"
+    >
+        ❮
+    </button>
 
-  <!-- LEFT ARROW -->
-
-  <button 
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#rewareCarousel"
-    data-bs-slide="prev">
-
-    <span class="carousel-control-prev-icon"></span>
-
-    <span class="visually-hidden">
-      Previous
-    </span>
-
-  </button>
-
-
-  <!-- RIGHT ARROW -->
-
-  <button 
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#rewareCarousel"
-    data-bs-slide="next">
-
-    <span class="carousel-control-next-icon"></span>
-
-    <span class="visually-hidden">
-      Next
-    </span>
-
-  </button>
-
-</div>
-
-  </div>
+    <button
+        class="next"
+        onclick="changeSlide(1)"
+    >
+        ❯
+    </button>
 
 </section>
-  </div>
-  <!-- ================= NEW ARRIVALS ================= -->
 
-<section>
 
-  <div class="section-heading">
 
-    <h2>NEW ARRIVALS</h2>
+<!-- ================= INTRO ================= -->
 
-    <p>
-      Discover pre-loved styles with a new story.
+<section class="intro">
+
+    <p class="small-title">
+        PRE-LOVED FASHION
     </p>
 
-  </div>
+    <h2>
+        Fashion That Keeps Moving
+    </h2>
 
-
-  <div class="container-fluid px-4">
-
-    <div class="row g-4">
-
-
-      <!-- PRODUCT 1 -->
-
-      <div class="col-6 col-md-3">
-
-        <div class="product-card">
-
-          <img 
-            src="product1.jpg"
-            class="product-image"
-            alt="Denim Jacket">
-
-          <div class="product-info">
-
-            <div class="product-name">
-              Classic Denim Jacket
-            </div>
-
-            <div class="product-price">
-              Rs. 2,500
-            </div>
-
-            <a 
-              href="shop.html"
-              class="shop-product-btn">
-
-              VIEW ITEM
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 2 -->
-
-      <div class="col-6 col-md-3">
-
-        <div class="product-card">
-
-          <img 
-            src="product2.jpg"
-            class="product-image"
-            alt="Vintage Shirt">
-
-          <div class="product-info">
-
-            <div class="product-name">
-              Vintage Printed Shirt
-            </div>
-
-            <div class="product-price">
-              Rs. 1,800
-            </div>
-
-            <a 
-              href="shop.html"
-              class="shop-product-btn">
-
-              VIEW ITEM
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 3 -->
-
-      <div class="col-6 col-md-3">
-
-        <div class="product-card">
-
-          <img 
-            src="product3.jpg"
-            class="product-image"
-            alt="Sweater">
-
-          <div class="product-info">
-
-            <div class="product-name">
-              Cozy Knit Sweater
-            </div>
-
-            <div class="product-price">
-              Rs. 2,200
-            </div>
-
-            <a 
-              href="shop.html"
-              class="shop-product-btn">
-
-              VIEW ITEM
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 4 -->
-
-      <div class="col-6 col-md-3">
-
-        <div class="product-card">
-
-          <img 
-            src="product4.jpg"
-            class="product-image"
-            alt="Classic Jeans">
-
-          <div class="product-info">
-
-            <div class="product-name">
-              Classic Blue Jeans
-            </div>
-
-            <div class="product-price">
-              Rs. 2,000
-            </div>
-
-            <a 
-              href="shop.html"
-              class="shop-product-btn">
-
-              VIEW ITEM
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
+    <p>
+        RE-WEAR is a clothing marketplace where users
+        can buy, sell and exchange pre-loved clothes.
+        Discover both Eastern and Western fashion
+        and give your wardrobe a second life.
+    </p>
 
 </section>
-    <style>
-  .site-footer{
-    background:#2e3a28;
-    color:#e6e3d8;
-    padding:50px 0 20px;
-  }
-  .site-footer h6{
-    font-size:0.78rem;
-    text-transform:uppercase;
-    letter-spacing:0.05em;
-    color:#9fae8f;
-    margin-bottom:16px;
-  }
-  .site-footer a{
-    color:#e6e3d8;
-    text-decoration:none;
-    display:block;
-    margin-bottom:10px;
-    font-size:0.92rem;
-  }
-  .site-footer a:hover{
-    color:#ffffff;
-    text-decoration:underline;
-  }
-  .site-footer .footer-brand{
-    font-weight:700;
-    font-size:1.4rem;
-    color:#ffffff;
-  }
-  .site-footer .footer-tagline{
-    color:#b7c2a9;
-    font-size:0.92rem;
-    max-width:32ch;
-    margin-top:10px;
-  }
-  .site-footer hr{
-    border-color:rgba(255,255,255,0.15);
-    margin:36px 0 20px;
-  }
-  .site-footer .footer-bottom{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:12px;
-    font-size:0.82rem;
-    color:#9fae8f;
-  }
-  .site-footer .social-icon{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,0.25);
-    margin-right:8px;
-  }
-</style>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="row gy-4">
 
-      <div class="col-6 col-md-3">
-        <div class="footer-brand">RE-WEAR</div>
-        <p class="footer-tagline">Buy, sell, or swap clothes — give what you own a new story.</p>
-      </div>
 
-      <div class="col-6 col-md-3">
-        <h6>Shop</h6>
-        <a href="shop.html">All Clothes</a>
-        <a href="shop.html?cat=outerwear">Jackets & Sweaters</a>
-        <a href="shop.html?cat=vintage">Vintage Collection</a>
-      </div>
+<!-- ================= CATEGORIES ================= -->
 
-      <div class="col-6 col-md-3">
-        <h6>Company</h6>
-        <a href="about.html">About Us</a>
-        <a href="sell.html">Sell / Trade</a>
-        <a href="contact.html">Contact</a>
-      </div>
+<section class="categories">
 
-      <div class="col-6 col-md-3">
-        <h6>Support</h6>
-        <a href="#">How Swapping Works</a>
-        <a href="#">Shipping & Returns</a>
-        <a href="#">Help Center</a>
-      </div>
+    <h2 class="section-title">
+        Shop By Style
+    </h2>
+
+
+    <div class="category-container">
+
+
+        <!-- EASTERN -->
+
+        <div
+            class="category"
+            id="eastern"
+            style="
+            background-image:
+            url('https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80');
+            "
+        >
+
+            <div class="category-content">
+
+                <h3>
+                    Eastern Formal
+                </h3>
+
+                <p>
+                    Elegant traditional dresses
+                    for every occasion.
+                </p>
+
+                <button
+                    class="white-button"
+                    onclick="showEastern()"
+                >
+                    SHOP EASTERN
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- WESTERN -->
+
+        <div
+            class="category"
+            id="western"
+            style="
+            background-image:
+            url('https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80');
+            "
+        >
+
+            <div class="category-content">
+
+                <h3>
+                    Western Formal
+                </h3>
+
+                <p>
+                    Modern dresses, blazers
+                    and elegant outfits.
+                </p>
+
+                <button
+                    class="white-button"
+                    onclick="showWestern()"
+                >
+                    SHOP WESTERN
+                </button>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <hr>
+</section>
 
-    <div class="footer-bottom">
-      <span>&copy; 2026 RE-WEAR. All rights reserved.</span>
-      <div>
-        <a href="#" class="social-icon" aria-label="Instagram">IG</a>
-        <a href="#" class="social-icon" aria-label="TikTok">TT</a>
-        <a href="#" class="social-icon" aria-label="Facebook">FB</a>
-      </div>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section class="products" id="shop">
+
+    <p
+        class="small-title"
+        style="text-align:center;"
+    >
+        NEW ARRIVALS
+    </p>
+
+    <h2 class="section-title">
+        Discover Pre-Loved Styles
+    </h2>
+
+
+    <div
+        class="product-container"
+        id="productContainer"
+    >
+
+
+        <!-- WESTERN 1 -->
+
+        <div
+            class="product-card western-product"
+            data-name="black formal blazer"
+        >
+
+            <img
+                src="blazer.jpg"
+                alt="Black Formal Blazer"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Black Formal Blazer
+                </h3>
+
+                <p class="category-name">
+                    Western Formal
+                </p>
+
+                <div class="price">
+                    Rs. 4,500
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Black Formal Blazer',4500)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Black Formal Blazer')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WESTERN 2 -->
+
+        <div
+            class="product-card western-product"
+            data-name="elegant evening dress"
+        >
+
+            <img
+                src="eveningg.jpg"
+                alt="Evening Dress"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Elegant Evening Dress
+                </h3>
+
+                <p class="category-name">
+                    Western Formal
+                </p>
+
+                <div class="price">
+                    Rs. 5,200
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Elegant Evening Dress',5200)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Elegant Evening Dress')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WESTERN 3 -->
+
+        <div
+            class="product-card western-product"
+            data-name="formal white shirt"
+        >
+
+            <img
+                src="white.jpg"
+                alt="Formal White Shirt"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Classic White Shirt
+                </h3>
+
+                <p class="category-name">
+                    Western Formal
+                </p>
+
+                <div class="price">
+                    Rs. 2,200
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Classic White Shirt',2200)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Classic White Shirt')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WESTERN 4 -->
+
+        <div
+            class="product-card western-product"
+            data-name="formal trousers"
+        >
+
+            <img
+                src="trouser.jpg"
+                alt="Formal Trousers"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Classic Formal Trousers
+                </h3>
+
+                <p class="category-name">
+                    Western Formal
+                </p>
+
+                <div class="price">
+                    Rs. 2,800
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Classic Formal Trousers',2800)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Classic Formal Trousers')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+  <!-- EASTERN 1 -->
+
+        <div
+            class="product-card eastern-product"
+            data-name="embroidered lawn suit"
+        >
+
+            <img
+                src="lawn.jpg"
+                alt="Embroidered Suit"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Embroidered Lawn Suit
+                </h3>
+
+                <p class="category-name">
+                    Eastern Formal
+                </p>
+
+                <div class="price">
+                    Rs. 3,800
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Embroidered Lawn Suit',3800)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Embroidered Lawn Suit')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EASTERN 2 -->
+
+        <div
+            class="product-card eastern-product"
+            data-name="formal shalwar kameez"
+        >
+
+            <img
+                src="shalwar.jpg"
+                alt="Shalwar Kameez"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Elegant Shalwar Kameez
+                </h3>
+
+                <p class="category-name">
+                    Eastern Formal
+                </p>
+
+                <div class="price">
+                    Rs. 4,200
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Elegant Shalwar Kameez',4200)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Elegant Shalwar Kameez')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EASTERN 3 -->
+
+        <div
+            class="product-card eastern-product"
+            data-name="formal embroidered dress"
+        >
+
+            <img
+                src="formalembroided.jfif"
+                alt="Eastern Dress"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Embroidered Formal Dress
+                </h3>
+
+                <p class="category-name">
+                    Eastern Formal
+                </p>
+
+                <div class="price">
+                    Rs. 5,000
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Embroidered Formal Dress',5000)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Embroidered Formal Dress')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EASTERN 4 -->
+
+        <div
+            class="product-card eastern-product"
+            data-name="festive kurta"
+        >
+
+            <img
+                src="festivekurta.jfif"
+                alt="Festive Kurta"
+            >
+
+            <div class="product-info">
+
+                <h3>
+                    Premium Festive Kurta
+                </h3>
+
+                <p class="category-name">
+                    Eastern Formal
+                </p>
+
+                <div class="price">
+                    Rs. 3,500
+                </div>
+
+                <div class="product-buttons">
+
+                    <button
+                        class="buy-button"
+                        onclick="addToCart('Premium Festive Kurta',3500)"
+                    >
+                        ADD TO CART
+                    </button>
+
+                    <button
+                        class="exchange-button"
+                        onclick="exchangeItem('Premium Festive Kurta')"
+                    >
+                        EXCHANGE
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
     </div>
-  </div>
+
+</section>
+
+
+
+<!-- ================= SELL ================= -->
+
+<section
+    class="sell-section"
+    id="sell"
+>
+
+    <div>
+
+        <p class="small-title">
+            SELL YOUR STYLE
+        </p>
+
+        <h2>
+            Have Clothes You Don't Wear?
+        </h2>
+
+        <p>
+            Turn your unused clothes into something valuable.
+            Upload your clothes and let someone else give
+            them a second life.
+        </p>
+
+    </div>
+
+    <button
+        class="sell-button"
+        onclick="openSell()"
+    >
+        SELL YOUR CLOTHES
+    </button>
+
+</section>
+
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section
+    class="how"
+    id="exchange"
+>
+
+    <p class="small-title">
+        SIMPLE PROCESS
+    </p>
+
+    <h2 class="section-title">
+        How RE-WEAR Works
+    </h2>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="number">
+                1
+            </div>
+
+            <h3>
+                Find Your Style
+            </h3>
+
+            <p>
+                Search for your favorite Eastern
+                or Western pre-loved clothes.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                2
+            </div>
+
+            <h3>
+                Buy or Exchange
+            </h3>
+
+            <p>
+                Buy an item or exchange your
+                clothes with another user.
+            </p>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">
+                3
+            </div>
+
+            <h3>
+                Sell Your Clothes
+            </h3>
+
+            <p>
+                Upload clothes you no longer
+                use and give them a new life.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+
+            <h3>
+                RE-WEAR
+            </h3>
+
+            <p>
+                Buy. Sell. Exchange.
+                Fashion with a second life.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#shop">Shop</a>
+                </li>
+
+                <li>
+                    <a href="#sell">Sell</a>
+                </li>
+
+                <li>
+                    <a href="#exchange">Exchange</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Categories
+            </h3>
+
+            <ul>
+
+                <li>
+                    <a href="#western"
+                       onclick="showWestern()">
+                        Western Formal
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#eastern"
+                       onclick="showEastern()">
+                        Eastern Formal
+                    </a>
+                </li>
+
+                <li>
+                    Pre-Loved Fashion
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 RE-WARE | Buy • Sell • Exchange
+
+    </div>
+
 </footer>
 
 
- <!-- IMPORTANT: Include Bootstrap JS at the end for dropdowns and mobile menu to function -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ================= CART MODAL ================= -->
+
+<div
+    class="modal"
+    id="cartModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('cartModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Your Cart
+        </h2>
+
+        <div id="cartItems">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= SELL MODAL ================= -->
+
+<div
+    class="modal"
+    id="sellModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('sellModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Sell Your Clothes
+        </h2>
+
+        <p>
+            Add your item details below.
+        </p>
+
+        <input
+            class="form-input"
+            placeholder="Clothing name"
+        >
+
+        <input
+            class="form-input"
+            placeholder="Price"
+        >
+
+        <select class="form-input">
+
+            <option>
+                Select category
+            </option>
+
+            <option>
+                Eastern Formal
+            </option>
+
+            <option>
+                Western Formal
+            </option>
+
+        </select>
+
+        <button
+            class="form-button"
+            onclick="submitSell()"
+        >
+            LIST ITEM
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= EXCHANGE MODAL ================= -->
+
+<div
+    class="modal"
+    id="exchangeModal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="close"
+            onclick="closeModal('exchangeModal')"
+        >
+            ×
+        </button>
+
+        <h2>
+            Exchange Item
+        </h2>
+
+        <p id="exchangeText">
+            Select an item to exchange.
+        </p>
+
+        <input
+            class="form-input"
+            placeholder="Enter your item name"
+        >
+
+        <button
+            class="form-button"
+            onclick="submitExchange()"
+        >
+            REQUEST EXCHANGE
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+    /* ================= CAROUSEL ================= */
+
+    let slideNumber = 0;
+
+    let slides = document.querySelectorAll(".slide");
+
+
+    function showSlide(number) {
+
+        slides.forEach(function(slide) {
+
+            slide.classList.remove("active");
+
+        });
+
+        slides[number].classList.add("active");
+
+    }
+
+
+    function changeSlide(direction) {
+
+        slideNumber = slideNumber + direction;
+
+        if (slideNumber >= slides.length) {
+            slideNumber = 0;
+        }
+
+        if (slideNumber < 0) {
+            slideNumber = slides.length - 1;
+        }
+
+        showSlide(slideNumber);
+
+    }
+
+
+    /* Automatic carousel */
+
+    setInterval(function() {
+
+        changeSlide(1);
+
+    }, 5000);
+
+
+
+    /* ================= SHOP NOW ================= */
+
+    function goToShop() {
+
+        document.getElementById("shop").scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+
+    /* ================= CART ================= */
+
+    let cart = [];
+
+
+    function addToCart(name, price) {
+
+        cart.push({
+            name: name,
+            price: price
+        });
+
+        document.getElementById("cartCount").innerText =
+            cart.length;
+
+        alert(name + " added to your cart!");
+
+    }
+
+
+    function openCart() {
+
+        let cartItems =
+            document.getElementById("cartItems");
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML =
+                "<p>Your cart is empty.</p>";
+
+        } else {
+
+            cartItems.innerHTML = "";
+
+            cart.forEach(function(item, index) {
+
+                cartItems.innerHTML +=
+
+                    "<div class='cart-item'>" +
+
+                    "<span>" +
+                    item.name +
+                    "</span>" +
+
+                    "<b>Rs. " +
+                    item.price +
+                    "</b>" +
+
+                    "</div>";
+
+            });
+
+        }
+
+        document.getElementById("cartModal").style.display =
+            "flex";
+
+    }
+
+
+
+    /* ================= SEARCH ================= */
+
+    function searchProducts() {
+
+        let searchValue =
+            document.getElementById("search").value.toLowerCase();
+
+        let products =
+            document.querySelectorAll(".product-card");
+
+
+        products.forEach(function(product) {
+
+            let name =
+                product.getAttribute("data-name");
+
+            if (name.includes(searchValue)) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+
+    /* ================= WESTERN ================= */
+
+    function showWestern() {
+
+        document.getElementById("shop").scrollIntoView({
+            behavior: "smooth"
+        });
+
+        let products =
+            document.querySelectorAll(".product-card");
+
+
+        products.forEach(function(product) {
+
+            if (
+                product.classList.contains("western-product")
+            ) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+
+    /* ================= EASTERN ================= */
+
+    function showEastern() {
+
+        document.getElementById("shop").scrollIntoView({
+            behavior: "smooth"
+        });
+
+        let products =
+            document.querySelectorAll(".product-card");
+
+
+        products.forEach(function(product) {
+
+            if (
+                product.classList.contains("eastern-product")
+            ) {
+
+                product.style.display = "block";
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+
+    /* ================= SELL ================= */
+
+    function openSell() {
+
+        document.getElementById("sellModal").style.display =
+            "flex";
+
+    }
+
+
+    function submitSell() {
+
+        alert(
+            "Your item has been submitted for listing!"
+        );
+
+        closeModal("sellModal");
+
+    }
+
+
+
+    /* ================= EXCHANGE ================= */
+
+    function exchangeItem(name) {
+
+        document.getElementById("exchangeText").innerText =
+            "You want to exchange: " + name;
+
+        document.getElementById("exchangeModal").style.display =
+            "flex";
+
+    }
+
+
+    function openExchange() {
+
+        document.getElementById("exchangeModal").style.display =
+            "flex";
+
+    }
+
+
+    function submitExchange() {
+
+        alert(
+            "Your exchange request has been submitted!"
+        );
+
+        closeModal("exchangeModal");
+
+    }
+
+
+
+    /* ================= CLOSE MODALS ================= */
+
+    function closeModal(id) {
+
+        document.getElementById(id).style.display =
+            "none";
+
+    }
+
+
+</script>
+
 
 </body>
+
 </html>
