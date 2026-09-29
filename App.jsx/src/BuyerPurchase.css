@@ -1,0 +1,36 @@
+css
+.buyer-purchase {
+  max-width: 450px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.buyer-purchase h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buyer-purchase form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.buyer-purchase input,
+.buyer-purchase select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.buyer-purchase button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #222;
+  color: white;
+  cursor: pointer;
+}

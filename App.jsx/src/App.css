@@ -1,0 +1,115 @@
+css
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.app {
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* HEADER */
+
+.header {
+  text-align: center;
+  padding: 35px 20px;
+  background: #222;
+  color: white;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+
+/* STAKEHOLDER BUTTONS */
+
+.stakeholder-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px 20px 20px;
+  flex-wrap: wrap;
+}
+
+.stakeholder-buttons button {
+  padding: 12px 22px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.stakeholder-buttons button:hover {
+  background: #eee;
+}
+
+.stakeholder-buttons button.active {
+  background: #222;
+  color: white;
+}
+
+
+/* FORM NAVIGATION */
+
+.form-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.form-navigation button {
+  padding: 10px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+
+.form-navigation button:hover {
+  background: #eee;
+}
+
+.form-navigation button.form-active {
+  background: #444;
+  color: white;
+}
+
+
+/* TITLE */
+
+.section-title {
+  text-align: center;
+  margin: 30px 20px 10px;
+}
+
+.section-title h2 {
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: #666;
+}
+
+
+/* FORM CONTAINER */
+
+.forms-container {
+  width: 100%;
+}
