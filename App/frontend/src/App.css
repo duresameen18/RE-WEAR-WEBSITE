@@ -1,0 +1,1377 @@
+/* Shared storefront colors and base control styles. */
+main {
+  width: 100%;
+  color: #263522;
+  background: #fff;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Sticky storefront navigation and account controls. */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  min-height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 0 5%;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.logo {
+  color: #263522;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 14px;
+}
+
+.nav-links a:hover,
+footer a:hover {
+  color: #89966c;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  width: 170px;
+  padding: 9px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.cart-button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 20px;
+  color: #fff;
+  background: #263522;
+  white-space: nowrap;
+}
+
+/* Hero carousel layout, slide text, buttons, and controls. */
+.hero {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  transition: background-image 0.3s ease;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  max-width: 520px;
+  transform: translateY(-50%);
+  animation: slide-in 0.35s ease;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translate(12px, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+.slide-content h1 {
+  margin: 15px 0;
+  font-size: 55px;
+  line-height: 1.1;
+}
+
+.slide-content > p:not(.small-title) {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.small-title {
+  color: #89966c;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.main-button,
+.buy-button,
+.form-button {
+  border: 0;
+  color: #fff;
+  background: #263522;
+}
+
+.main-button {
+  padding: 14px 27px;
+}
+
+.main-button:hover,
+.buy-button:hover,
+.form-button:hover {
+  background: #4c6048;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  width: 45px;
+  height: 45px;
+  transform: translateY(-50%);
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.carousel-control.prev {
+  left: 25px;
+}
+
+.carousel-control.next {
+  right: 25px;
+}
+
+/* Landing-page introduction and clothing category cards. */
+.intro {
+  padding: 70px 10%;
+  text-align: center;
+}
+
+.intro h2 {
+  margin: 12px 0;
+  font-size: 36px;
+}
+
+.intro > p:last-child {
+  max-width: 750px;
+  margin: auto;
+  color: #666;
+  line-height: 1.7;
+}
+
+.categories {
+  padding: 20px 6% 70px;
+}
+
+.section-title {
+  margin: 0 0 35px;
+  text-align: center;
+  font-size: 34px;
+}
+
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.category {
+  position: relative;
+  display: flex;
+  height: 330px;
+  align-items: flex-end;
+  padding: 30px;
+  background-position: center;
+  background-size: cover;
+}
+
+.category::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent, rgb(0 0 0 / 75%));
+  content: "";
+}
+
+/* Category-card text and action button. */
+.category-content {
+  position: relative;
+  color: #fff;
+}
+
+.category-content h3 {
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+
+.category-content p {
+  margin-bottom: 15px;
+}
+
+.white-button {
+  padding: 10px 20px;
+  border: 0;
+  color: #263522;
+  background: #fff;
+}
+
+/* Product grid, item details, and purchase/exchange buttons. */
+.products {
+  padding: 70px 6%;
+  background: #f6f6f1;
+}
+
+.centered {
+  text-align: center;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  min-width: 0;
+  background: #fff;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 17px;
+}
+
+.product-info h3 {
+  margin-bottom: 7px;
+}
+
+.category-name {
+  margin-bottom: 8px;
+  color: #888;
+  font-size: 13px;
+}
+
+.price {
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.product-buttons {
+  display: flex;
+  gap: 7px;
+}
+
+.buy-button,
+.exchange-button {
+  flex: 1;
+  padding: 10px 6px;
+  border: 0;
+  font-size: 12px;
+}
+
+.exchange-button {
+  color: #263522;
+  background: #dfe5d4;
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+/* Seller callout and the steps section below the storefront. */
+.sell-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 70px 6%;
+  padding: 60px;
+  color: #fff;
+  background: #263522;
+}
+
+.sell-section h2 {
+  margin: 15px 0;
+  font-size: 38px;
+}
+
+.sell-section > div > p:last-child {
+  max-width: 650px;
+  color: #ddd;
+  line-height: 1.7;
+}
+
+.sell-button {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 14px 25px;
+  border: 0;
+  color: #263522;
+  background: #fff;
+}
+
+.sell-button:hover,
+.white-button:hover {
+  background: #dfe5d4;
+}
+
+.how {
+  padding: 70px 6%;
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.step {
+  padding: 30px;
+  border: 1px solid #ddd;
+}
+
+.number {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: #dfe5d4;
+  font-weight: 700;
+}
+
+.step h3 {
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Optional portal-card styles retained for the role link section. */
+.form-directory {
+  padding: 20px 6% 70px;
+  background: #f6f6f1;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.portal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.portal-card > p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.portal-card h3 {
+  margin: 0 0 4px;
+}
+
+.portal-card a,
+.form-home-link {
+  color: #40563a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.portal-card .portal-button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 11px 15px;
+  border-radius: 4px;
+  color: #fff;
+  background: #263522;
+  text-decoration: none;
+}
+
+.portal-card .portal-button:hover {
+  color: #fff;
+  background: #4c6048;
+}
+
+.portal-card a:hover,
+.form-home-link:hover {
+  color: #89966c;
+}
+
+/* Form gallery embedded at the bottom of the storefront landing page. */
+.landing-form-gallery {
+  padding: 70px 6%;
+  background: #f6f6f1;
+}
+
+.landing-form-gallery .section-title {
+  margin-bottom: 14px;
+}
+
+.landing-form-description {
+  max-width: 720px;
+  margin: 0 auto 30px;
+  color: #666;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.landing-form-notice {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  padding: 13px 16px;
+  border: 1px solid #b9d3aa;
+  color: #263522;
+  background: #eff6ea;
+}
+
+.landing-form-notice.error {
+  border-color: #e6b3af;
+  color: #9f342d;
+  background: #fff0ef;
+}
+
+.stakeholder-form-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.stakeholder-form-group {
+  padding: 22px;
+  border: 1px solid #e1e3dc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.stakeholder-form-group h3 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+
+.form-option-list {
+  display: grid;
+  gap: 9px;
+}
+
+.form-option {
+  display: block;
+  padding: 11px 14px;
+  border: 1px solid #c9cec1;
+  border-radius: 4px;
+  color: #263522;
+  background: #fff;
+  text-decoration: none;
+  text-align: left;
+}
+
+.form-option:hover,
+.form-option.active {
+  border-color: #263522;
+  color: #fff;
+  background: #263522;
+}
+
+.selected-landing-form {
+  width: min(520px, 100%);
+  margin: 28px auto 0;
+}
+
+.selected-landing-form > .form-page {
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.selected-landing-form .reware-form {
+  width: 100%;
+  padding: 28px;
+  border: 1px solid #e1e3dc;
+  border-radius: 8px;
+  box-shadow: 0 3px 16px rgb(38 53 34 / 8%);
+}
+
+.landing-form-page {
+  min-height: 100vh;
+  background: #f6f6f1;
+}
+
+.form-page-header {
+  display: flex;
+  min-height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 12px 6%;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.form-page-header .form-home-link {
+  position: static;
+}
+
+.selected-form-content {
+  padding: 48px 20px 70px;
+}
+
+.selected-form-content .landing-form-notice {
+  width: min(520px, 100%);
+}
+
+.invalid-form-page {
+  width: min(520px, 100%);
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid #e1e3dc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.invalid-form-page p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.invalid-form-page .portal-button {
+  display: inline-block;
+  padding: 11px 15px;
+  color: #fff;
+  background: #263522;
+}
+
+/* Shared dashboard page header and action-card layout. */
+.stakeholder-dashboard {
+  min-height: 100vh;
+  background: #f6f6f1;
+}
+
+.dashboard-header {
+  display: flex;
+  min-height: 75px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+.dashboard-home-link {
+  color: #40563a;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.dashboard-content {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 70px 30px;
+}
+
+.dashboard-content > h1 {
+  margin: 10px 0;
+  font-size: 38px;
+}
+
+.dashboard-description {
+  margin-bottom: 30px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.dashboard-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dashboard-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 170px;
+  padding: 24px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.dashboard-action h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.dashboard-action p {
+  margin-bottom: 20px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.dashboard-action a {
+  margin-top: auto;
+  padding: 10px 16px;
+  color: #fff;
+  background: #263522;
+}
+
+.dashboard-action a:hover {
+  background: #4c6048;
+}
+
+/* Dashboard account controls, summaries, panels, forms, and record lists. */
+.dashboard-account {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 14px;
+}
+
+.dashboard-account button,
+.nav-account-link {
+  padding: 9px 12px;
+  border: 1px solid #263522;
+  color: #263522;
+  background: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.dashboard-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid #e1e3dc;
+  background: #fff;
+}
+
+.dashboard-stat span {
+  color: #666;
+  font-size: 14px;
+}
+
+.dashboard-stat strong {
+  font-size: 28px;
+}
+
+.dashboard-panel {
+  min-width: 0;
+  margin-bottom: 22px;
+  padding: 24px;
+  border: 1px solid #e1e3dc;
+  background: #fff;
+}
+
+.dashboard-panel h2 {
+  margin: 0 0 18px;
+  font-size: 21px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.panel-heading h2,
+.panel-heading .small-title {
+  margin-bottom: 5px;
+}
+
+.dashboard-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dashboard-columns > .dashboard-panel {
+  margin-bottom: 22px;
+}
+
+.dashboard-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.dashboard-product {
+  min-width: 0;
+  border: 1px solid #e1e3dc;
+  background: #fff;
+}
+
+.dashboard-product img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #f6f6f1;
+}
+
+.dashboard-product > div {
+  padding: 15px;
+}
+
+.dashboard-product h3 {
+  margin: 0 0 8px;
+}
+
+.dashboard-product p {
+  color: #666;
+  font-size: 14px;
+}
+
+.inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.inline-actions button,
+.dashboard-form button,
+.secondary-button,
+.danger-button {
+  padding: 9px 12px;
+  border: 0;
+  color: #fff;
+  background: #263522;
+  cursor: pointer;
+}
+
+.secondary-button {
+  border: 1px solid #a7b096;
+  color: #263522;
+  background: #f3f5ef;
+}
+
+.secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.danger-button {
+  background: #9f342d;
+}
+
+.dashboard-form {
+  display: grid;
+  gap: 14px;
+}
+
+.dashboard-form label {
+  display: grid;
+  gap: 6px;
+  color: #263522;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dashboard-form input,
+.dashboard-form select,
+.dashboard-form textarea,
+.manage-row select {
+  width: 100%;
+  min-width: 130px;
+  padding: 10px;
+  border: 1px solid #c9cec1;
+  border-radius: 3px;
+  background: #fff;
+  color: #263522;
+  font: inherit;
+}
+
+.record-list {
+  display: grid;
+}
+
+.record-item {
+  padding: 14px 0;
+  border-top: 1px solid #e6e8e2;
+}
+
+.record-item > strong,
+.record-item > span {
+  display: block;
+}
+
+.record-item > span,
+.manage-row span {
+  margin-top: 5px;
+  color: #666;
+  font-size: 14px;
+}
+
+.manage-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.manage-row > div:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.manage-row select {
+  width: auto;
+}
+
+.empty-state {
+  padding: 14px 0;
+  color: #666;
+}
+
+.success-message {
+  margin-bottom: 18px;
+  padding: 12px 16px;
+  border: 1px solid #b9d3aa;
+  color: #263522;
+  background: #eff6ea;
+}
+
+.success-message.error {
+  border-color: #e6b3af;
+  color: #9f342d;
+  background: #fff0ef;
+}
+
+.category-management {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e1e3dc;
+}
+
+.category-management h3 {
+  margin: 0 0 10px;
+}
+
+.category-management ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.category-management li {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #eff2e9;
+  font-size: 14px;
+}
+
+/* Shared buyer/seller auth page and separate administrator login form. */
+.auth-page {
+  display: grid;
+  min-height: 100vh;
+  align-content: center;
+  justify-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+  background: #dfe5d4;
+}
+
+.auth-logo {
+  width: fit-content;
+}
+
+.auth-card {
+  width: min(480px, 100%);
+  padding: 34px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgb(38 53 34 / 14%);
+}
+
+.auth-card h1 {
+  margin: 8px 0;
+  color: #263522;
+  font-size: 30px;
+}
+
+.auth-description,
+.auth-switch {
+  color: #666;
+  line-height: 1.5;
+}
+
+.auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 22px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.auth-tabs button {
+  padding: 12px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: #fff;
+  cursor: pointer;
+}
+
+.auth-tabs button.active {
+  border-bottom-color: #263522;
+  color: #263522;
+  font-weight: 700;
+}
+
+.auth-form {
+  display: grid;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.auth-form label {
+  margin-top: 7px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.auth-form input,
+.auth-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c9cec1;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.auth-submit {
+  margin-top: 12px;
+  padding: 13px;
+  border: 0;
+  color: #fff;
+  background: #263522;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.auth-submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.auth-switch {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-switch a {
+  color: #40563a;
+  text-decoration: underline;
+}
+
+.form-error {
+  padding: 10px;
+  color: #9f342d;
+  background: #fff0ef;
+}
+
+.demo-admin-note {
+  margin-top: 18px;
+  padding: 12px;
+  border: 1px solid #e7d9a8;
+  background: #fff9e8;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.route-loading {
+  padding: 30px;
+}
+
+/* Storefront footer and shared modal styling. */
+footer {
+  padding: 50px 6% 20px;
+  color: #fff;
+  background: #1d281b;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+}
+
+footer p,
+footer li {
+  color: #ccc;
+  line-height: 1.8;
+}
+
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.copyright {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #465044;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgb(0 0 0 / 55%);
+}
+
+.modal-box {
+  width: min(500px, 100%);
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 30px;
+  background: #fff;
+}
+
+.modal-box h2 {
+  margin-bottom: 20px;
+}
+
+.close {
+  float: right;
+  border: 0;
+  background: none;
+  font-size: 25px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.form-input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 13px;
+  border: 0;
+  color: #fff;
+  background: #263522;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-route {
+  position: relative;
+}
+
+.form-home-link {
+  position: absolute;
+  z-index: 1;
+  top: 14px;
+  left: 20px;
+}
+
+.form-page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 40px;
+  background: #dfe5d4;
+}
+
+.reware-form {
+  width: min(450px, 100%);
+  padding: 35px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgb(38 53 34 / 18%);
+}
+
+.reware-logo {
+  margin-bottom: 10px;
+  color: #263522;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.reware-logo::after {
+  display: block;
+  width: 45px;
+  height: 2px;
+  margin: 8px auto 20px;
+  background: #89966c;
+  content: "";
+}
+
+.reware-form h1 {
+  margin: 0 0 25px;
+  color: #263522;
+  font-size: 25px;
+  text-align: center;
+}
+
+.reware-form label {
+  display: block;
+  margin: 15px 0 7px;
+  color: #263522;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.reware-form input,
+.reware-form select,
+.reware-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #54663e;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 15px;
+}
+
+.reware-form input:focus,
+.reware-form select:focus,
+.reware-form textarea:focus {
+  border-color: #89966c;
+  outline: 2px solid rgb(137 150 108 / 20%);
+}
+
+.reware-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.reware-form .image-upload input {
+  height: auto;
+  padding: 10px;
+}
+
+.image-upload-preview {
+  display: block;
+  width: 100%;
+  max-height: 240px;
+  margin-top: 12px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.image-upload-error {
+  margin-top: 6px;
+  color: #b42318;
+  font-size: 14px;
+}
+
+.form-field-error {
+  display: block;
+  margin-top: 6px;
+  color: #b42318;
+  font-size: 14px;
+}
+
+.reware-form button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 13px;
+  border: 0;
+  border-radius: 8px;
+  color: #fff;
+  background: #263522;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.reware-form button:hover {
+  background: #89966c;
+}
+
+/* Tablet and mobile layouts for storefronts, dashboards, and forms. */
+@media (max-width: 1000px) {
+  .navbar {
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .product-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stakeholder-form-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  .slide-content h1 {
+    font-size: 40px;
+  }
+
+  .category-container,
+  .product-container,
+  .steps,
+  .footer-container,
+  .portal-grid,
+  .dashboard-actions,
+  .dashboard-columns,
+  .stakeholder-form-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-content {
+    padding: 45px 16px;
+  }
+
+  .dashboard-panel {
+    padding: 18px;
+  }
+
+  .manage-row,
+  .panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .manage-row select {
+    width: 100%;
+  }
+
+  .sell-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 25px;
+  }
+
+  .reware-form {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  .nav-right {
+    width: 100%;
+  }
+
+  .search-box {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .slide-content {
+    right: 8%;
+  }
+
+  .slide-content h1 {
+    font-size: 34px;
+  }
+
+  .carousel-control.prev {
+    left: 10px;
+  }
+
+  .carousel-control.next {
+    right: 10px;
+  }
+}
